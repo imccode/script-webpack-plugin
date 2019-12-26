@@ -8,7 +8,7 @@
 [![webpack](https://img.shields.io/badge/webpack-%3E%20%3D%204.0.0-blue.svg)](https://webpack.js.org/)
 [![nodejs](https://img.shields.io/badge/node-%3E%20%3D%2010.0.0-blue.svg)](https://nodejs.org/)
 [![license](https://img.shields.io/npm/l/script-webpack-plugin.svg)](https://www.npmjs.com/package/script-webpack-plugin)
-[![pull request](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/imccode/script-webpack-plugin)
+[![pull request](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/imccode/script-webpack-plugin/pulls)
 
 ## 安装获取
 
