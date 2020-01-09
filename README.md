@@ -69,8 +69,10 @@ module.exports = {
 
 具体配置项的数据类型见[types.ts](./src/types.ts)
 
-- **cacheDirectory** 生成缓存目录。 生成环境默认不开启，开发环境默认: `'./node_modules/.cache/script'`
-- **dropConsole** 是否在生产环境删除console。 默认: `true`
-- **gzip** 脚本文件的gizp压缩。默认开启，详见：<https://github.com/webpack-contrib/compression-webpack-plugin>
+- `cacheDirectory` 生成缓存目录。 生成环境默认不开启，开发环境默认: `'./node_modules/.cache/script'`
+- `dropConsole` 是否在生产环境删除console。 默认: `true`
+- `gzip` 脚本文件的gizp压缩。默认开启，详见：<https://github.com/webpack-contrib/compression-webpack-plugin>
 
-按照[babelConfig](https://babeljs.io/docs/en/config-files)配置要求，例如创建babel.config.js，最终会和默认配置合并。
+按照[babelConfig](https://babeljs.io/docs/en/config-files)配置要求，例如创建`babel.config.js`文件，最终会和默认配置合并。
+
+按照[browserslist](https://github.com/browserslist/browserslist#queries)配置要求，例如创建`.browserslistrc`，最终采用browserslist的配置要求生成代码。
