@@ -97,7 +97,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
       babelConfig.presets.forEach((item, index) => {
         const key = returnKey(item)
         presets.forEach((userPareset, userIndex) => {
-          const useKey = returnKey(item)
+          const useKey = returnKey(userPareset)
           if (useKey !== '' && key === useKey) {
             babelConfig.presets[index] = userPareset
             delete presets[userIndex]
@@ -110,7 +110,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
       babelConfig.plugins.forEach((item, index) => {
         const key = returnKey(item)
         plugins.forEach((userPlugin, userIndex) => {
-          const useKey = returnKey(item)
+          const useKey = returnKey(userPlugin)
           if (useKey !== '' && key === useKey) {
             babelConfig.plugins[index] = userPlugin
             delete plugins[userIndex]
