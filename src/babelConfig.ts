@@ -27,10 +27,6 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
        */
       'babel-plugin-lodash',
       /**
-       * 展开运算符
-       */
-      '@babel/plugin-proposal-object-rest-spread',
-      /**
        * 装饰器
        *
        * @connet()
@@ -48,14 +44,6 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
        * export * as ns from 'mod'
        */
       '@babel/plugin-proposal-export-namespace-from',
-      /**
-       * require('mod')
-       */
-      '@babel/plugin-transform-modules-commonjs',
-      /**
-       * import('mod')
-       */
-      '@babel/plugin-syntax-dynamic-import',
       /**
        * 去除重复的 polyfill 导入
        */
@@ -118,11 +106,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
         })
       })
 
-      babelConfig.plugins = [
-        ...babelConfig.plugins.slice(0, babelConfig.plugins.length - 1 || 0),
-        ...plugins.filter(item => !!item),
-        ...babelConfig.plugins.slice(babelConfig.plugins.length - 1)
-      ]
+      babelConfig.plugins = [...babelConfig.plugins, ...plugins.filter(item => !!item)]
     }
   }
 

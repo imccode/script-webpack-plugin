@@ -56,13 +56,10 @@ module.exports = {
 默认使用的插件：
 
 - `babel-plugin-lodash` 处理冗余的lodash函数
-- `@babel/plugin-proposal-object-rest-spread` 展开运算符(`[...arr]` `{...obj}`)
 - `@babel/plugin-proposal-decorators` 装饰器(`@connet()`)
 - `@babel/plugin-proposal-class-properties` class 类
 - `@babel/plugin-proposal-export-default-from` 默认导出(`export v from 'mod'`)
 - `@babel/plugin-proposal-export-namespace-from` 模糊导出(`export * as ns from 'mod'`)
-- `@babel/plugin-transform-modules-commonjs` commonjs语法导入(`require('mod')`)
-- `@babel/plugin-syntax-dynamic-import` 异步导出(`import('mod')`)
 - `@babel/plugin-transform-runtime` 去除重复的 polyfill 导入
 
 ## 配置项
