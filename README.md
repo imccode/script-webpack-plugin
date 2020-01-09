@@ -2,6 +2,8 @@
 
 :kissing_heart:一个处理脚本文件的webpack插件。
 
+特性：运行环境按需补丁、自动分包、代码压缩、多线程打包、生成gizp、支持ESNext、typescript语法、开发环境缓存构建。
+
 :point_right:
 [![github](https://img.shields.io/github/release-date/imccode/script-webpack-plugin.svg)](https://github.com/imccode/script-webpack-plugin/releases)
 [![npm-version](https://img.shields.io/npm/v/script-webpack-plugin.svg)](https://www.npmjs.com/package/script-webpack-plugin)
