@@ -1,6 +1,6 @@
 {
   "name": "script-webpack-plugin",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "一个处理脚本文件的webpack插件",
   "main": "lib/index.js",
   "typings": "types/index.d.ts",
@@ -48,7 +48,6 @@
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",
     "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.7",
     "babel-loader": "^8.0.6",
     "babel-plugin-lodash": "^3.3.4",
@@ -66,7 +65,6 @@
     "@types/webpack": "^4.41.0",
     "prettier": "1.19.1",
     "typescript": "latest",
-    "vue-loader": "^15.8.3",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
   },
@@ -82,5 +80,8 @@
     "insertPragma": false,
     "tabWidth": 2,
     "useTabs": false
+  },
+  "babel": {
+    "plugins": []
   }
 }

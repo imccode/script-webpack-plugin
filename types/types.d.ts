@@ -16,25 +16,10 @@ export interface ScriptWebpackPluginOptions {
      */
     dropConsole?: boolean;
     /**
-     * 是否开启hot代码热更新
-     */
-    hot?: boolean;
-    /**
-     * 框架支持情况
-     */
-    framework?: {
-        /** 支持vue 框架编译 */
-        vue?: boolean;
-        /** 支持react 框架编译 */
-        react?: boolean;
-    };
-    /**
      * 资源生成gzip
      * docs: https://github.com/webpack-contrib/compression-webpack-plugin
      */
     gzip?: false | CompressionPlugin.Options<any>;
-    /** babel配置的类型 */
-    babelConfigType?: BabelConfigType;
 }
 export declare enum BabelConfigType {
     /** 完全自定义的配置 */

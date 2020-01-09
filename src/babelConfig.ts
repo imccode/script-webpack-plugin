@@ -4,6 +4,9 @@ import path from 'path'
 import { Compiler } from 'webpack'
 import { BabelConfiguration, ScriptWebpackPluginOptions, SmartCosmiconfigResult } from './types'
 
+/**
+ * 生成babel配置
+ */
 export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
   const babelConfig: BabelConfiguration = {
     /**
@@ -67,24 +70,57 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
     'babel'
   ).search()
 
-  let config = babelConfig
-
   /**
    * 是否使用typescript语言
    */
   const isTypescript: boolean = fs.existsSync(path.resolve(compiler.context, 'tsconfig.json'))
 
-  if (userBabelConfig) {
-    config = userBabelConfig.config
+  const returnKey = (data: string | Array<string | { [key: string]: any }>): string => {
+    if (typeof data === 'string') {
+      return data
+    }
 
+    if (Array.isArray(data) && data.length > 0) {
+      const name = data[0]
+      if (typeof name === 'string') {
+        return name
+      }
+    }
+
+    return ''
+  }
+
+  if (userBabelConfig) {
     const { presets, plugins }: BabelConfiguration = userBabelConfig.config
+
     if (presets && Array.isArray(presets)) {
-      config.presets = [...babelConfig.presets, ...presets]
+      babelConfig.presets.forEach((item, index) => {
+        const key = returnKey(item)
+        presets.forEach((userPareset, userIndex) => {
+          const useKey = returnKey(item)
+          if (useKey !== '' && key === useKey) {
+            babelConfig.presets[index] = userPareset
+            delete presets[userIndex]
+          }
+        })
+      })
+      babelConfig.presets = [...babelConfig.presets, ...presets.filter(item => !!item)]
     }
     if (plugins && Array.isArray(plugins)) {
-      config.plugins = [
+      babelConfig.plugins.forEach((item, index) => {
+        const key = returnKey(item)
+        plugins.forEach((userPlugin, userIndex) => {
+          const useKey = returnKey(item)
+          if (useKey !== '' && key === useKey) {
+            babelConfig.plugins[index] = userPlugin
+            delete plugins[userIndex]
+          }
+        })
+      })
+
+      babelConfig.plugins = [
         ...babelConfig.plugins.slice(0, babelConfig.plugins.length - 1 || 0),
-        ...plugins,
+        ...plugins.filter(item => !!item),
         ...babelConfig.plugins.slice(babelConfig.plugins.length - 1)
       ]
     }
@@ -94,18 +130,9 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
    * 转换ts、tsx语法
    */
   if (isTypescript) {
-    config.presets.push('@babel/preset-typescript')
-    compiler.options.resolve.extensions.push('.ts')
+    babelConfig.presets.push('@babel/preset-typescript')
+    compiler.options.resolve.extensions = [...compiler.options.resolve.extensions, '.ts']
   }
 
-  /**
-   * 转换react jsx语法
-   */
-  if (options.framework.react) {
-    config.presets.unshift(['@babel/preset-react', { useBuiltIns: 'usage' }])
-    compiler.options.resolve.extensions.push('.jsx')
-    isTypescript && compiler.options.resolve.extensions.push('.tsx')
-  }
-
-  return config
+  return babelConfig
 }

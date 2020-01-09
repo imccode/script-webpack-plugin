@@ -1,19 +1,17 @@
-import { ScriptWebpackPluginOptions, BabelConfigType } from './types'
-import { Compiler } from 'webpack'
 import path from 'path'
+import { Compiler } from 'webpack'
+import { ScriptWebpackPluginOptions } from './types'
 
 export default (options: ScriptWebpackPluginOptions = {}, compiler: Compiler) => {
   // 默认配置
   const defaultOptions: ScriptWebpackPluginOptions = {
     dropConsole: true,
-    cacheDirectory: compiler.options.mode === 'production' ? false : path.resolve(compiler.context, 'node_modules/.cache', 'script'),
-    babelConfigType: BabelConfigType.add
+    cacheDirectory: compiler.options.mode === 'production' ? false : path.resolve(compiler.context, 'node_modules/.cache', 'script')
   }
 
   const mergeOptions: ScriptWebpackPluginOptions = {
     ...defaultOptions,
-    ...options,
-    framework: options.framework || {}
+    ...options
   }
 
   if (options.cacheDirectory && typeof options.cacheDirectory === 'string') {

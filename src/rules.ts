@@ -3,9 +3,6 @@ import babelConfig from './babelConfig'
 import { BabelConfigType, ScriptWebpackPluginOptions } from './types'
 
 export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
-  const babelConfigs =
-    options.babelConfigType === BabelConfigType.custom ? {} : babelConfig(options, compiler)
-
   const rules: RuleSetRule[] = [
     {
       test: /\.(j|t)sx?$/,
@@ -30,7 +27,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
             /**
              * babel 配置
              */
-            ...babelConfigs
+            ...babelConfig(options, compiler)
           }
         }
       ]
