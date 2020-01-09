@@ -16,7 +16,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
       /**
        * 转换需要的浏览器环境代码
        */
-      '@babel/preset-env'
+      ['@babel/preset-env', { modules: false, useBuiltIns: 'usage', corejs: 3 }]
     ],
     /**
      * 插件
@@ -59,7 +59,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
       /**
        * 去除重复的 polyfill 导入
        */
-      '@babel/plugin-transform-runtime'
+      ['@babel/plugin-transform-runtime', { corejs: 3 }]
     ]
   }
 
