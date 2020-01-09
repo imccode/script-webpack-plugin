@@ -70,3 +70,5 @@ module.exports = {
 - **cacheDirectory** 生成缓存目录。 生成环境默认不开启，开发环境默认: `'./node_modules/.cache/script'`
 - **dropConsole** 是否在生产环境删除console。 默认: `true`
 - **gzip** 脚本文件的gizp压缩。默认开启，详见：<https://github.com/webpack-contrib/compression-webpack-plugin>
+
+按照[babelConfig](https://babeljs.io/docs/en/config-files)配置要求，例如创建babel.config.js，最终会和默认配置合并。
