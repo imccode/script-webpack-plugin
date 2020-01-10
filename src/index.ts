@@ -6,7 +6,6 @@ import optimization from './optimization'
 import output from './output'
 import rules from './rules'
 import { ScriptWebpackPluginOptions } from './types'
-import vue from './vue'
 
 /**
  * 脚本webpack插件
@@ -39,13 +38,9 @@ class ScriptWebpackPlugin {
       new CaseSensitivePathsPlugin()
     )
 
-    vue(this.options, compiler)
     output(this.options, compiler)
     optimization(this.options, compiler)
-
-    compiler.hooks.afterEnvironment.tap('ScriptWebpackPlugin', () => {
-      compiler.options.module.rules.push(...rules(this.options, compiler))
-    })
+    compiler.options.module.rules.push(...rules(this.options, compiler))
   }
 }
 

@@ -27,9 +27,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
        */
       '@babel/plugin-proposal-nullish-coalescing-operator',
       /**
-       * 装饰器
-       *
-       * @connet()
+       * 装饰器 @connet()
        */
       ['@babel/plugin-proposal-decorators', { legacy: true }],
       /**
