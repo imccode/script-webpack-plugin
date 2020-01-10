@@ -1,6 +1,6 @@
 {
   "name": "script-webpack-plugin",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "一个处理脚本文件的webpack插件",
   "main": "lib/index.js",
   "typings": "types/index.d.ts",
