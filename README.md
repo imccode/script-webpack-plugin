@@ -55,7 +55,7 @@ module.exports = {
 
 默认使用的插件：
 
-- `babel-plugin-lodash` 处理冗余的lodash函数
+- `@babel/plugin-proposal-nullish-coalescing-operator` typescript的可选链(`var.prd ?? 'test'`)
 - `@babel/plugin-proposal-decorators` 装饰器(`@connet()`)
 - `@babel/plugin-proposal-class-properties` class 类
 - `@babel/plugin-proposal-export-default-from` 默认导出(`export v from 'mod'`)

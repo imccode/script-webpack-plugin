@@ -23,9 +23,9 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
      */
     plugins: [
       /**
-       * 顺序不可以调整
+       * var.prd ?? 'test'
        */
-      'babel-plugin-lodash',
+      '@babel/plugin-proposal-nullish-coalescing-operator',
       /**
        * 装饰器
        *
@@ -106,7 +106,7 @@ export default (options: ScriptWebpackPluginOptions, compiler: Compiler) => {
         })
       })
 
-      babelConfig.plugins = [...babelConfig.plugins, ...plugins.filter(item => !!item)]
+      babelConfig.plugins = [...plugins.filter(item => !!item), ...babelConfig.plugins]
     }
   }
 
