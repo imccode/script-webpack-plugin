@@ -1,6 +1,6 @@
 {
   "name": "script-webpack-plugin",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "一个处理脚本文件的webpack插件",
   "main": "lib/index.js",
   "typings": "types/index.d.ts",
@@ -52,6 +52,7 @@
     "babel-loader": "^8.0.6",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "compression-webpack-plugin": "^3.0.1",
+    "core-js": "^3.6.3",
     "cosmiconfig": "^6.0.0",
     "terser-webpack-plugin": "^2.3.1",
     "thread-loader": "^2.1.3"
