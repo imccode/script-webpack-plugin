@@ -22,7 +22,7 @@ export default (options: ScriptWebpackPluginOptions = {}, compiler: Compiler) =>
      */
     chunkFilename:
       compiler.options.mode === 'production'
-        ? 'js/[name].chunk-[contenthash:8].min.js'
+        ? 'js/[name].chunk-[chunkhash:8].min.js'
         : 'js/[name].chunk-[hash:8].js'
   }
 
